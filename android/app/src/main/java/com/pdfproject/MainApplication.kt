@@ -9,7 +9,9 @@ import com.facebook.react.ReactPackage
 import com.facebook.react.defaults.DefaultNewArchitectureEntryPoint.load
 import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
+import com.facebook.react.shell.MainReactPackage
 import com.facebook.soloader.SoLoader
+import com.rnfs.RNFSPackage
 
 class MainApplication : Application(), ReactApplication {
 
@@ -18,10 +20,13 @@ class MainApplication : Application(), ReactApplication {
         override fun getPackages(): List<ReactPackage> =
             PackageList(this).packages.apply {
               // Packages that cannot be autolinked yet can be added manually here, for example:
-              // add(MyReactNativePackage())
+              //add(MainReactPackage())
+                add(MyAppPackage())
             }
 
         override fun getJSMainModuleName(): String = "index"
+
+
 
         override fun getUseDeveloperSupport(): Boolean = BuildConfig.DEBUG
 
@@ -40,4 +45,5 @@ class MainApplication : Application(), ReactApplication {
       load()
     }
   }
+
 }
